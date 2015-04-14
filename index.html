@@ -4,5 +4,20 @@
     </head>
     <body>
         <h1>Welcome to the Historical CTF</h1>
+        <h2>The Backstory</h2>
+        <p>On January 3rd, 1978, a large bank lost $100 million when a hacker broke into its database (information security was more lax in those days) and wired the contents of many accounts to an anonymous Swiss bank account. Based on a tip, the FBI has investigated a cryptographer researcher by the name of Bob Badguy for the crime, but they haven't managed to find much evidence in the 37 years since. Badguy is known to have had a keen interest in the emerging field of public-key cryptography, pioneered by Whitfield Diffie and Martin Hellman in 1976, and covered his tracks using the cutting-edge cryptography available every step of the way for the past four decades.</p> 
+
+		<p>Now, the FBI has made the first potential breakthrough in the case by locating a transmission sent by Badguy to a server in Zurich, Switzerland, 3 minutes after the bank's database was broken into. The transmission is thought to contain log-in information. The FBI has determined that Badguy implemented the RSA public-key encryption scheme as presented by Rivest, Shami, and Ali in their 1978 paper A Method for Obtaining Digital Signatures and Public-Key Cryptosystem, and used the scheme to encrypt the transmission the FBI have tracked down.</p>
+
+		<h2> Your Task </h2>
+		<p>Thankfully, the scheme presented in the original RSA paper has some serious flaws unknown at the time. For instance, the original implementation is completely deterministic; the same message encrypted with the same public key will always produce the same ciphertext. The FBI has hired you to decrypt the contents of the transmission, obtaining Badguy's original log-in information.</p>
+
+		<p> The ciphertext consists of a single block, believed to be Badguy's password. (The username, bbadguy, was sent in the clear.) The ciphertext, interpreted as an integer, is: 991089711710010111510497110110111110.</p> 
+
+		<p> Badguy's RSA public-key, extracted from code found a device beleived to belong to the suspect is (N = 1218053, e = 65537).</p>
+
+		<p> The FBI has provided you with a list of common passwords, which can be downloaded <a href="/RTY9kMQa6SWhW6qJ9zaE">here</a>. 
+
+		<p> The FBI has set up a mirrored version of the server, available to you <a href="server.html">here</a>. Once you believe you've decrypted the password, you can try logging in with the candidate credentials. Unfortunately, the FBI has ruled out bombarding the site with passwords, since the log-in mechanism is rate-limited to 1 attempt/second.
     </body>
 </html>
