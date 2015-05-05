@@ -1,23 +1,101 @@
 <html>
-    <head>
-        <title>Historical CTF</title>
-    </head>
-    <body>
-        <h1>Welcome to the Historical CTF</h1>
-        <h2>The Backstory</h2>
-        <p>On January 3rd, 1978, a large bank lost $100 million when a hacker broke into its database (information security was more lax in those days) and wired the contents of many accounts to an anonymous Swiss bank account. Based on a tip, the FBI has investigated a cryptographer researcher by the name of Bob Badguy for the crime, but they haven't managed to find much evidence in the 37 years since. Badguy is known to have had a keen interest in the emerging field of public-key cryptography, pioneered by Whitfield Diffie and Martin Hellman in 1976, and covered his tracks using the cutting-edge cryptography available every step of the way for the past four decades.</p> 
+<head>
+  <!-- JavaScript assets -->
+  <script src="/static/js/jquery.min.js"></script>
 
-		<p>Now, the FBI has made the first potential breakthrough in the case by locating a transmission sent by Badguy to a server in Zurich, Switzerland, 3 minutes after the bank's database was broken into. The transmission is thought to contain log-in information, consisting of a username in the clear (bbadguy) and an encrypted password. The FBI has determined that Badguy implemented the RSA public-key encryption scheme as presented by Rivest, Shami, and Ali in their 1978 paper A Method for Obtaining Digital Signatures and Public-Key Cryptosystem, and used the scheme to encrypt the transmission the FBI have tracked down.</p>
+  <!-- Bootstrap assets -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
-		<h2> Your Task </h2>
-		<p>Thankfully, the scheme presented in the original RSA paper has some serious flaws unknown at the time. For instance, the original implementation is completely deterministic; the same message encrypted with the same public key will always produce the same ciphertext. The FBI has hired you to decrypt the contents of the transmission, obtaining Badguy's original log-in credentials.</p>
+  <!-- CSS assets -->
+  <link href="/static/css/ionicons.min.css" rel="stylesheet">
+  <link href="/static/css/template.css" rel="stylesheet">
+  <link href="/static/css/style.css" rel="stylesheet">
 
-		<p> The ciphertext consists of a single block, believed to be Badguy's password. (The username, bbadguy, was sent in the clear.) The ciphertext, interpreted as an integer, is: 991089711710010111510497110110111110.</p> 
+  <!-- Meta-information -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-		<p> Badguy's RSA public-key, extracted from code found on a device beleived to belong to the suspect is (N = 1218053, e = 65537).</p>
+  <!-- Page styling -->
+  <title>Historical CTF</title>
+  <link rel="icon" href="/static/img/favicon.ico">
+</head>
 
-		<p> The FBI has provided you with a list of common passwords, which can be downloaded <a href="/dictionary.txt">here</a>. 
+<body>
+  <div id="h">
+    <!-- <a href="/" class="logo">THE HISTORICAL CTF</a> -->
+    <div class="social hidden-xs">
+      <a href="/task1/">START</a>
+      <a href="/#sep">BACKSTORY</a>
+      <a href="https://github.com/historical-ctf/historical-ctf.github.io" target="_blank">SOURCE</a>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1 centered">
+          <h1 class="banner" style="font-size: 60px">The Historical CTF</h1>
+          <h2 class="banner" style="font-size: 24px">An interactive walk through the history of RSA vulnerabilities.</h2>
+          <div class="mtb">
+            <a href="/task1/"><button class="btn btn-conf-2 btn-green">Get Started</button></a>
+          </div><!--/mt-->
+        </div>
+      </div><!--/row-->
+    </div><!--/container-->
+  </div><!-- /H -->
 
-		<p> The FBI has set up a mirrored version of the server, available to you <a href="server.html">here</a>. Once you believe you've decrypted the password, you can try logging in with the candidate credentials. Unfortunately, the FBI has ruled out bombarding the site with passwords, since the log-in mechanism is rate-limited to 1 attempt/second.
-    </body>
+  <div class="container ptb">
+    <div class="row">
+      <div class="col-md-6">
+        <h2>RSA <span class="highlight">revolutionized</span> the Internet.</h2>
+        <p class="mt">The 1977 release of Rivest, Shamir, and Adleman's seminal paper, "A Method for Obtaining Digital
+Signatures and Public-Key Cryptosystems", was a great moment in the history of computing, as it allowed the Internet to evolve into the commercial and economic hub that it is today. </p>
+      </div>
+      <div class="col-md-6">
+        <h2>But it's not without its <span class="highlight">flaws</span>.</h2>
+        <p class="mt">Over the past few decades, RSA has been scrutinized by researchers, who have unveiled vulnerabilities based on mathematical analysis and implementation flaws. Tracing these vulnerabilities in an interactive CTF setting is the perfect way to learn about the history of cryptography.</p>
+      </div>
+    </div><!--/row-->
+  </div><!--/container-->
+
+  <div id="sep">
+    <div class="container">
+      <div class="row centered">
+        <div class="col-md-10 col-md-offset-1">
+          <h1>The <span class="highlight">Backstory</span></h1>
+          <h4>On January 3rd, 1978, a large bank lost $100 million when a hacker broke into its database and wired the contents of many accounts to an anonymous Swiss bank account. The FBI has been tipped towards investigating a cryptographic researcher, Bob Badguy, but have failed to mount a case against him in the 37 years since.
+          <br><br>
+          Badguy is known for his keen interest in the emerging field of public-key cryptography, pioneered by Whitfield Diffie and Martin Hellman in 1976. Over the past 37 years, he's covered his tracks using the cutting-edge cryptography available to him at the time.
+          <br><br>
+          Now, it's up to you to break his code and put Badguy away for good.</h4>
+          <p><a href="/task1/"><button class="btn btn-conf-2 btn-green">Get Started</button></a></p>
+        </div><!--/col-md-8-->
+      </div>
+    </div>
+  </div><!--/sep-->
+
+  <div id="g">
+    <div class="container">
+      <div class="row centered">
+        <h2>Interested in the <span class="highlight">source</span>?</h2>
+        <h3>Check out our <a href="https://github.com/historical-ctf/historical-ctf.github.io" target="_blank">GitHub</a>.</h3>
+      </div><!--/row-->
+    </div>
+  </div><!--/g-->
+
+
+  <div id="f">
+    <div class="container">
+      <div class="row centered">
+        <h4>Developed by <a>James Evans</a> and <a href="http://www.crmarsh.com/" target="_blank">Charles Marsh</a></h4>
+        <h4>as a final project for Princeton's <a href="https://registrar.princeton.edu/course-offerings/course_details.xml?courseid=010571&term=1154" target="_blank">COS 583</a>.</h4>
+
+        <br>
+        <h4>Released under the <a href="https://github.com/historical-ctf/historical-ctf.github.io/blob/master/LICENSE.md" target="_blank">MIT License</a>.</h4>
+      </div><!--/row-->
+    </div><!--/container-->
+  </div><!--/F-->
+</body>
 </html>
