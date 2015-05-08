@@ -3,18 +3,23 @@
 // Setup help modal
 function initializeModal() {
   var modalInitializer = document.getElementsByClassName('help-button')[hintIndex];
+  modalInitializer.hint = hints[hintIndex++];
   if (modalInitializer) {
     // Setup handler
     modalInitializer.onclick = function() {
-      var clicked = $('.help-button').index($(this));
+      if (!modalInitializer.used) {
+        // Render this hint as used
+        modalInitializer.used = true;
 
-      vex.dialog.alert(hints[clicked]);
-      if (hintIndex == clicked)
-        hintIndex++;
-      $(this).fadeTo("slow", 0.5);
+        // Fade out
+        $(modalInitializer).animate({
+          'opacity': 0.6
+        }, 1000);
 
-      // Make the next hint visible
-      initializeModal();
+        // Make the next hint visible
+        initializeModal();
+      }
+      vex.dialog.alert(modalInitializer.hint);
     };
 
     // Fade in
