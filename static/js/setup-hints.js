@@ -22,7 +22,7 @@ function initializeModal() {
 
 var hintIndex = 0;
 var hints = [
-  'Good luck!',
+  'The original implmentation of RSA had some critical security flaws. Try searching for "Textbook RSA" and use if you can use what you find to figure out Badguy\s password',
   'You did well!',
   'That was great!'
 ];

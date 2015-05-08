@@ -37,8 +37,8 @@
 <div id="terminal">
 Welcome to the first challenge. Your task is to hack in to Bob Badguy's server.<br><br>
 Back in the day, Badguy had to send his username and password over plaintext.<br>
-So he would encrypt his password using his private key and have the server decrypt before checking for correctness.<br><br>
-Because of this scheme, we have his unencrypted username (<span class="highlight">bbadguy</span>) and his encrypted password (<span class="highlight">991089711710010111510497110110111110</span>).<br><br>
+So he would encrypt his password using the original implementation of RSA and his server's public key. The server could subsequently  decrypt before checking for correctness.<br><br>
+Because of this scheme, we have obtained Badguy's unencrypted username (<span class="highlight">bbadguy</span>) and his encrypted password (<span class="highlight">991089711710010111510497110110111110</span>).<br><br>
 Unfortunately, the FBI has ruled out brute-forcing the login, since Badguy implemented a rate-limiting scheme.<br><br>
 Can you crack the code?<br><br>
 <span class="highlight">Note:</span> You can click the help icon on the right for a <span class="highlight">hint</span> at any time.
