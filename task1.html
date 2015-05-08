@@ -41,7 +41,11 @@ So he would encrypt his password using the original implementation of RSA and hi
 Because of this scheme, we have obtained Badguy's unencrypted username (<span class="highlight">bbadguy</span>) and his encrypted password (<span class="highlight">991089711710010111510497110110111110</span>).<br><br>
 Unfortunately, the FBI has ruled out brute-forcing the login, since Badguy implemented a rate-limiting scheme.<br><br>
 Can you crack the code?<br><br>
-<span class="highlight">Note:</span> You can click the help icon on the right for a <span class="highlight">hint</span> at any time.
+<span class="highlight">Note:</span> You can click the help icon on the right for a <span class="highlight">hint</span> at any time. 
+
+<br><br>
+Badguy used a home-brewed method to serialize messages into numbers to be encrypted with RSA. We've converted his code to Python for you <a href="scripts/util.py">here</a>.
+
 </div>
 <div class="help-buttons">
   <span class="glyphicon glyphicon-question-sign help-button"></span>
