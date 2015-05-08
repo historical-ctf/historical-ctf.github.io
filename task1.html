@@ -1,0 +1,54 @@
+<html>
+<head>
+  <!-- jQuery -->
+  <script src="/static/js/jquery.min.js"></script>
+
+  <!-- Bootstrap assets -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+  <!-- JavaScript assets -->
+  <script src="/static/js/jquery.terminal-0.8.8.min.js"></script>
+  <script src="/static/js/vex.combined.min.js"></script>
+
+  <!-- CSS assets -->
+  <link href="/static/css/jquery.terminal.css" rel="stylesheet">
+  <link href="/static/css/style.css" rel="stylesheet">
+  <link href="/static/css/vex.css" rel="stylesheet">
+  <link href="/static/css/vex-theme-plain.css" rel="stylesheet">
+  <script>vex.defaultOptions.className = 'vex-theme-plain';</script>
+
+  <!-- Meta-information -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An interactive CTF tracing the history of RSA vulnerabilities.">
+  <meta name="author" content="">
+
+  <!-- Page styling -->
+  <title>Historical CTF - Task 1</title>
+  <link rel="icon" href="/static/img/favicon.ico">
+</head>
+
+<body>
+<div>
+</div>
+<div id="terminal">
+Welcome to the first challenge. Your task is to hack in to Bob Badguy's server.<br><br>
+Back in the day, Badguy had to send his username and password over plaintext.<br>
+So he would encrypt his password using his private key and have the server decrypt before checking for correctness.<br><br>
+Because of this scheme, we have his unencrypted username (<span class="highlight">bbadguy</span>) and his encrypted password (<span class="highlight">991089711710010111510497110110111110</span>).<br><br>
+Unfortunately, the FBI has ruled out brute-forcing the login, since Badguy implemented a rate-limiting scheme.<br><br>
+Can you crack the code?<br><br>
+<span class="highlight">Note:</span> You can click the help icon on the right for a <span class="highlight">hint</span> at any time.
+</div>
+<div class="help-buttons">
+  <span class="glyphicon glyphicon-question-sign help-button"></span>
+  <span class="glyphicon glyphicon-question-sign help-button"></span>
+  <span class="glyphicon glyphicon-question-sign help-button"></span>
+  <span class="glyphicon glyphicon-question-sign help-button"></span>
+</div>
+<script src="/static/js/setup-task.js"></script>
+<script src="/static/js/setup-hints.js"></script>
+</body>
