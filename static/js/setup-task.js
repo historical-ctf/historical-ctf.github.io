@@ -21,8 +21,6 @@ function clearHints() {
   });
 
   justLoggedIn = true; /* Use Task 2's hint text */
-  var modalInitializer = $('.help-button').first();
-  initializeModal();
 }
 
 function navigateToDir(dir) {

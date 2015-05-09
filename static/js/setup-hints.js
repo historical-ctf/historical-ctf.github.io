@@ -2,36 +2,27 @@
 
 // Setup help modal
 function initializeModal() {
-  if (justLoggedIn) {
-    hints = ["1","2","3","4"];
-    hintIndex = 0;
-  }
-
   var modalInitializer = document.getElementsByClassName('help-button')[hintIndex];
-
-  if (justLoggedIn) {
-    modalInitializer.used = false;
-    justLoggedIn = false;
-  }
-  if (hintIndex < hints.length)
-    modalInitializer.hint = hints[hintIndex++];
-
   if (modalInitializer) {
     // Setup handler
     modalInitializer.onclick = function() {
-      if (!modalInitializer.used) {
-        // Render this hint as used
-        modalInitializer.used = true;
-
-        // Fade out
-        $(modalInitializer).animate({
-          'opacity': 0.6
-        }, 1000);
-
-        // Make the next hint visible
-        initializeModal();
+      /* Kind of a hack: if we just logged in, switch to hints for Task 2 */
+      if (justLoggedIn) {
+        hints = ["1","2","3","4"];
+        hintIndex = 0;
+        justLoggedIn = false;
       }
-      vex.dialog.alert(modalInitializer.hint);
+
+      var clicked = $('.help-button').index($(this));
+      vex.dialog.alert(hints[clicked]);
+      if (hintIndex == clicked)
+        hintIndex++;
+
+      // Fade out old hint
+      $(this).fadeTo("slow", 0.5);
+
+      // Make the next hint visible
+      initializeModal();
     };
 
     // Fade in
