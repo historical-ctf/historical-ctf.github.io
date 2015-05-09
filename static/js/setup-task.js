@@ -114,6 +114,11 @@ var setupTask = function(options) {
 
       if (state == 'fs') {
         command = command.trim();
+        /* User has first preference */
+        if (options.parseCommand && options.parseCommand(command, term)) {
+          return;
+        }
+
         /* Change directory */
         if (command.match(/^cd$/)) {
           currentDir = [homeDir];
@@ -198,6 +203,7 @@ var setupTask = function(options) {
             'password': password
           }
         }).done(function(result) {
+          console.log(result);
           fs[homeDir] = JSON.parse(result);
 
           // Setup new terminal prompt and whatnot

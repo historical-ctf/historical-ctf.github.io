@@ -1,4 +1,6 @@
 var debug = true;
+var hasLoggedIn = false;
+var loggedInPrompt = 'bbadguy> ';
 
 function displayTask1Modal() {
   vex.dialog.alert({
@@ -8,14 +10,37 @@ function displayTask1Modal() {
   });
 }
 
+function parseCommand(command, term) {
+  if (hasLoggedIn && command.match(/^sign \S+$/)) {
+    var m = command.split(' ')[1];
+    $.ajax({
+      type: 'POST',
+      url: 'http://localhost:5000/sign/',
+      data: { 'message': m }
+    }).done(function(result) {
+      term.echo('Signed message: ' + result);
+    })
+    .fail(function() {
+      term.error('Will not sign');
+    })
+    .always(function() {
+      term.set_prompt(loggedInPrompt);
+    });
+    term.set_prompt('');
+    return true;
+  }
+}
+
 var options = {
-  targetURL: debug ? 'http://localhost:5000/login/' : 'https://historical-ctf.herokuapp.com/login/',
+  targetURL: debug ? 'http://localhost:5000/login/3' : 'https://historical-ctf.herokuapp.com/login/3',
   onLogin: displayTask1Modal,
   setupNewTerminal: function(term) {
+    hasLoggedIn = true;
     term.echo('Login successful...');
     term.echo('Welcome back, bbadguy!');
-    term.set_prompt('bbadguy> ');
-  }
+    term.set_prompt(loggedInPrompt);
+  },
+  parseCommand: parseCommand
 };
 
 setupTask(options);
