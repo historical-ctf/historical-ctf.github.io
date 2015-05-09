@@ -23,21 +23,41 @@ function setTask2Hints() {
   ];
 }
 
-// Setup help modal
+function setPreTask3Hints() {
+  hintIndex = 0;
+  hints = [
+    'Look in Badguy\'s diary on the previous server for some login credentials.'
+  ];
+}
+
+function setTask3Hints() {
+  hintIndex = 0;
+  hints = [
+    'First hint',
+    'Second hint'
+  ];
+}
+
+// Helper function to prepare next modal
 function initializeModal() {
-  var modalInitializer = document.getElementsByClassName('help-button')[hintIndex];
-  if (modalInitializer) {
+  if (hintIndex < hints.length) {
+    var modalInitializer = document.getElementsByClassName('help-button')[hintIndex];
+
     // Setup handler
     modalInitializer.onclick = function() {
       /* Kind of a hack: if we just logged in, switch to hints for Task 2 */
       if (window.justLoggedIn) {
-        setTask2Hints();
+        if (window.task == 1) {
+          setTask2Hints();
+        } else if (window.task == 3) {
+          setTask3Hints();
+        }
         window.justLoggedIn = false;
       }
 
       var clicked = $('.help-button').index($(this));
       vex.dialog.alert(hints[clicked]);
-      if (hintIndex == clicked) {
+      if (hintIndex === clicked) {
         hintIndex++;
       }
 
@@ -56,7 +76,12 @@ function initializeModal() {
   }
 }
 
-setTask1Hints();
+// Initialize hints
+if (window.task == 1) {
+  setTask1Hints();
+} else if (window.task == 3) {
+  setPreTask3Hints();
+}
 initializeModal();
 
 })();
