@@ -230,6 +230,7 @@ var setupTask = function(options) {
       height: '100%',
       prompt: 'sh> ',
       onInit: function(term) {
+        options.onStart && options.onStart();
         term.set_command('login')
         term.echo('')
       },
