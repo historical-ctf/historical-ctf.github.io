@@ -1,6 +1,6 @@
 import math
 
-# Turn a string into a number for RSA encryption. 
+# Turn a string into a number for RSA encryption.
 def serialize(s):
     ctr = 0
     i = len(s)
@@ -8,14 +8,6 @@ def serialize(s):
         i = i - 1
         ctr = ctr + (ord(c) * (256 ** i))
     return ctr
-
-def serializeChars(s):
-    ctr = 0
-    i = len(s)
-    for c in s:
-        i = i - 1
-        ctr = ctr + (ord(c) * (32 ** i))
-    return ctr   
 
 # Turn a number into a string after RSA decryption.
 def deserialize(n):
@@ -53,3 +45,12 @@ def modinv(a, m):
         raise Exception('Modular inverse does not exist')
     else:
         return x % m
+
+
+def iroot(k, n):
+    u, s = n, n + 1
+    while u < s:
+        s = u
+        t = (k - 1) * s + n // pow(s, k - 1)
+        u = t // k
+    return s
