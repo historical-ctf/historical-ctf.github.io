@@ -8,7 +8,11 @@ function initializeModal() {
     modalInitializer.onclick = function() {
       /* Kind of a hack: if we just logged in, switch to hints for Task 2 */
       if (justLoggedIn) {
-        hints = ["1","2","3","4"];
+        hints = [
+        "Try poking around Badguy's server to discover a security flaw to exploit. Chat logs might be particularly useful..",
+        "You may have noticed that Badguy sent two identical messages using the same modulus and two different exponents. Try searching for \"Common Modulus attacks\".",
+        "To get you going with the common modulus attack, <a href=\"static/scripts/cross_skeleton.py\">here's</a> some skeleton code",
+        "Click <a href=\"/static/scripts/solution.py\">here</a> for another reference solution. We're making this easy for you!"];
         hintIndex = 0;
         justLoggedIn = false;
       }
