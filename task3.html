@@ -32,22 +32,16 @@
   <meta name="author" content="">
 
   <!-- Page styling -->
-  <title>Historical CTF - Task 1</title>
+  <title>Historical CTF - Task 3</title>
   <link rel="icon" href="/static/img/favicon.ico">
 </head>
 
 <body style="color:#000">
 <div id="terminal">
-Welcome to the first challenge. Your task is to hack into Bob Badguy's server.<br><br>
+Welcome to the third challenge. You've made it a long way!<br><br>
 ---<br><br>
-Back in the day, before SSL, Badguy had to send his username and password over plaintext.<br><br>
-To guard against eavesdroppers, he would encrypt his password using the original implementation of RSA and his server's public key. The server could subsequently decrypt <br> before checking for correctness.<br><br>
-Because of this scheme, we have obtained Badguy's unencrypted username (<span class="highlight">bbadguy</span>) and his encrypted password (<span class="highlight">258725901603</span>).<br><br>
-We have also obtained his RSA public key, which consists of a modulus <b>N</b> (<span class="highlight">773978585664881</span>) and an exponent <b>e</b> (<span class="highlight">65537</span>).<br><br>
-Unfortunately, the FBI has ruled out brute-forcing the login by bombarding the server with guesses, since Badguy implemented a one guess per second rate-limiting scheme.<br><br>
-Badguy used a home-brewed method to serialize messages into numbers to be encrypted with RSA. We've <a href="/static/scripts/task1/util.py">converted</a> his code to Python. But the rest is up to you.<br><br>
-Can you crack the code?<br><br>
-<span class="highlight">Note:</span> You can click the help icon on the right for a <span class="highlight">hint</span> at any time.
+Information about the challenge.<br><br>
+<span class="highlight">Note:</span> You'll still need to login to this server, but you should have found some credentials when snooping around Badguy's previous filesystem in Task 2.
 </div>
 <div class="help-buttons">
   <span class="glyphicon glyphicon-question-sign help-button"></span>
@@ -55,8 +49,8 @@ Can you crack the code?<br><br>
   <span class="glyphicon glyphicon-question-sign help-button"></span>
   <span class="glyphicon glyphicon-question-sign help-button"></span>
 </div>
-<script>window.task = 1;</script>
+<script>window.task = 3;</script>
 <script src="/static/js/setup-task.js"></script>
-<script src="/static/js/setup-task1.js"></script>
+<script src="/static/js/setup-task3.js"></script>
 <script src="/static/js/setup-hints.js"></script>
 </body>
