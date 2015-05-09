@@ -11,8 +11,8 @@ function initializeModal() {
         hints = [
         "Try poking around Badguy's server to discover a security flaw to exploit. Chat logs might be particularly useful..",
         "You may have noticed that Badguy sent two identical messages using the same modulus and two different exponents. Try searching for \"Common Modulus attacks\".",
-        "To get you going with the common modulus attack, <a href=\"static/scripts/cross_skeleton.py\">here's</a> some skeleton code",
-        "Click <a href=\"/static/scripts/solution.py\">here</a> for another reference solution. We're making this easy for you!"];
+        "To get you going with the common modulus attack, <a href=\"static/scripts/skeleton2.py\">here's</a> some skeleton code and another <a href=\"static/scripts/util2\">util</a>file",
+        "Click <a href=\"/static/scripts/solution2.py\">here</a> for another reference solution. We're making this easy for you!"];
         hintIndex = 0;
         justLoggedIn = false;
       }
