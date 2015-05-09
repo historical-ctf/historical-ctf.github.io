@@ -1,9 +1,9 @@
-import util
+import util2
 
 
 def decrypt(c1, c2, e1, e2, n):
     # Compute GCD
-    (gcd, x, y) = util.egcd(e1, e2)
+    (gcd, x, y) = util2.egcd(e1, e2)
     assert(gcd == 1)
 
     # One of (x, y) will be negative, which makes it difficult to do (c ^ x) % n
@@ -11,10 +11,10 @@ def decrypt(c1, c2, e1, e2, n):
     #   d ^ (-x) === c ^ x (mod n)
     # (This solution comes from https://en.wikipedia.org/wiki/Modular_exponentiation)
     if x < 0:
-        c1 = util.modinv(c1, n)
+        c1 = util2.modinv(c1, n)
         x = -x
     elif y < 0:
-        c2 = util.modinv(c2, n)
+        c2 = util2.modinv(c2, n)
         y = -y
 
     # Use knowledge of c1, c2, x, y to solve for m
@@ -23,18 +23,20 @@ def decrypt(c1, c2, e1, e2, n):
 
 
 if __name__ == '__main__':
-    # Choose primes (p, q)
-    (p, q) = (569, 571)
-    n = p * q
+    # Public modulus
+    # FILL IN BADGUY's PUBLIC MODULUS (found in chat logs)
+    n = 
 
-    # Picks different public exponents for each, both prime (need GCD = 1)
-    e1 = 1171
-    e2 = 983
+    # Public exponents
+    # FILL IN BADGUY'S PUBLIC EXPONENTS
+    e1 = 
+    e2 = 
 
-    # Compute ciphertexts
-    m = 7
-    (c1, c2) = (util.encrypt(m, e1, n), util.encrypt(m, e2, n))
+    # Ciphertexts
+    # FILL IN BADGUY'S ENCRYPTED MESSAGES
+    c1 = 
+    c2 = 
 
     # Decrypt paired ciphertexts
     m_guess = decrypt(c1, c2, e1, e2, n)
-    print 'm = %d, guess = %d' % (m, m_guess)
+    print 'guess = %s' % (util2.deserialize(m_guess))

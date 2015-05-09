@@ -1,3 +1,5 @@
+import math
+
 # Turn a string into a number for RSA encryption. 
 def serialize(s):
     ctr = 0

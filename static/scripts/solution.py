@@ -1,13 +1,7 @@
-def crypt(m, e, n):
-    return (m ** e) % n
+import util
 
-def serialize(s):
-	ctr = 0
-	i = len(s) - 1
-	for c in s:
-		ctr += ord(c) ** i
-		i = i - 1
-	return ctr
+def crypt(m, e, n):
+    return pow(m,e,n)
 
 if __name__ == '__main__':
 
@@ -24,7 +18,7 @@ if __name__ == '__main__':
 	# Try every password in dictionary
 	count = 0
 	for l in lines:
-		if crypt(serialize(l), e, n) == cipher:
+		if crypt(util.serialize(l), e, n) == cipher:
 			print "Password Cracked: %s" % l
 			break
 		count = count + 1
