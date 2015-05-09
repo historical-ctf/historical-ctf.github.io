@@ -80,7 +80,7 @@ jQuery(function($, undefined) {
       command = command.trim();
       /* Change directory */
       if (command.match(/^cd$/)) {
-        currentDir = homeDir;
+        currentDir = [homeDir];
         var dirString = currentDir.join('/');
         term.echo(dirString);
       }
