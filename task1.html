@@ -45,7 +45,7 @@ To guard against eavesdroppers, he would encrypt his password using the original
 Because of this scheme, we have obtained Badguy's unencrypted username (<span class="highlight">bbadguy</span>) and his encrypted password (<span class="highlight">258725901603</span>).<br><br>
 We have also obtained his RSA public key, which consists of a modulus <b>N</b> (<span class="highlight">773978585664881</span>) and an exponent <b>e</b> (<span class="highlight">65537</span>).<br><br>
 Unfortunately, the FBI has ruled out brute-forcing the login by bombarding the server with guesses, since Badguy implemented a one guess per second rate-limiting scheme.<br><br>
-Badguy used a home-brewed method to serialize messages into numbers to be encrypted with RSA. We've <a href="/static/scripts/util.py">converted</a> his code to Python. But the rest is up to you.<br><br>
+Badguy used a home-brewed method to serialize messages into numbers to be encrypted with RSA. We've <a href="/static/scripts/task1/util.py">converted</a> his code to Python. But the rest is up to you.<br><br>
 Can you crack the code?<br><br>
 <span class="highlight">Note:</span> You can click the help icon on the right for a <span class="highlight">hint</span> at any time.
 </div>
