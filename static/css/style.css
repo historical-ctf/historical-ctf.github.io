@@ -38,6 +38,10 @@
     top: 10px;
 }
 
+.cmd {
+    color: yellow;
+}
+
 .help-button:nth-child(2) {
     top: 45px;
 }
