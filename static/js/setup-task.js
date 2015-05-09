@@ -9,17 +9,20 @@ var currentDir = [homeDir];
 var state = 'fs';
 var username;
 var password;
-var hintNum = 1;
 
 function clearHints() {
   $('.help-button').each(function(index) {
     if (index == 0)
       $(this).fadeTo("slow",1);
-    else
-      $(this).css("display", "none");
+    else {
+      $(this).css("opacity", 0);
+      $(this).css("visibility", "hidden");
+    }  
   });
 
-  hintNum = 2; /* Use Task 2's hint text */
+  justLoggedIn = true; /* Use Task 2's hint text */
+  var modalInitializer = $('.help-button').first();
+  initializeModal();
 }
 
 function navigateToDir(dir) {

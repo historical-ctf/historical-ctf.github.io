@@ -2,10 +2,20 @@
 
 // Setup help modal
 function initializeModal() {
+  if (justLoggedIn) {
+    hints = ["1","2","3","4"];
+    hintIndex = 0;
+  }
+
   var modalInitializer = document.getElementsByClassName('help-button')[hintIndex];
+
+  if (justLoggedIn) {
+    modalInitializer.used = false;
+    justLoggedIn = false;
+  }
   if (hintIndex < hints.length)
     modalInitializer.hint = hints[hintIndex++];
-  console.log(hintIndex);
+
   if (modalInitializer) {
     // Setup handler
     modalInitializer.onclick = function() {
