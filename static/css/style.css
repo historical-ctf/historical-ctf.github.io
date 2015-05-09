@@ -12,7 +12,7 @@
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(241, 196, 16, .6);
 }
 
-/* Task page */
+/* Task page - hint buttons */
 .help-button {
     font-size: 2em;
     cursor: pointer;
@@ -38,10 +38,6 @@
     top: 10px;
 }
 
-.cmd {
-    color: yellow;
-}
-
 .help-button:nth-child(2) {
     top: 45px;
 }
@@ -57,4 +53,18 @@
 .help-button:nth-child(n+2) {
     visibility: hidden;
     opacity: 0;
+}
+
+/* Task page - styling */
+.cmd {
+    color: yellow;
+}
+
+.congratulatory-modal .vex-dialog-button {
+    background-color: #03C9A9 !important;
+    color: red;
+}
+
+.congratulatory-modal .vex-content {
+    border: 3px solid #03C9A9;
 }
