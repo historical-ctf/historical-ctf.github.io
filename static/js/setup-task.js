@@ -174,7 +174,7 @@ var setupTask = function(options) {
           }
         }
         /* Login attempt */
-        else if (command.match(/^login$/)) {
+        else if (options.targetURL && command.match(/^login$/)) {
           state = 'userid';
           term.set_prompt('username: ');
         } else if (command.match(/^head(.*)/) || command.match(/^less (.*)/)) {
