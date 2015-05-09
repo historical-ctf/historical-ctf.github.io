@@ -256,6 +256,4 @@ jQuery(function($, undefined) {
   });
 });
 
-displayTask1Modal();
-
 })();
