@@ -26,6 +26,20 @@ function clearHints() {
   window.justLoggedIn = true;
 }
 
+function displayTask1Modal() {
+  vex.dialog.alert({
+    message: 'Good job! You\'re now inside Badguy\'s server.<br><br>The key to the previous challenge was that so-called "Textbook RSA" is a deterministic protocol. So if you encrypt the same message twice, you get the same ciphertext.<br><br>Over time, researchers have incorporated randomness into RSA through protocols like <a href="https://en.wikipedia.org/wiki/Optimal_asymmetric_encryption_padding" target="_blank">OAEP encoding</a>.',
+    // Have to include 'vex-theme-plain' or it clobbers the default class
+    className: 'vex-theme-plain congratulatory-modal'
+  });
+}
+
+function onTask1Complete() {
+  displayTask1Modal();
+  clearHints();
+}
+
+/* Directory navigation */
 function navigateToDir(dir) {
   // Navigate to directory
   var dirContents = fs;
@@ -199,8 +213,8 @@ jQuery(function($, undefined) {
         term.set_prompt('bbadguy> ');
         state = 'fs';
 
-        /* Clear all but the first hint, and update the text to Task 2 */
-        clearHints();
+        // Run handler, which resets hints and displays a modal
+        onTask1Complete();
       })
       .fail(function() {
         term.echo('Login unsuccessful...');
@@ -241,5 +255,7 @@ jQuery(function($, undefined) {
     }
   });
 });
+
+displayTask1Modal();
 
 })();
