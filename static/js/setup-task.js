@@ -136,6 +136,8 @@ jQuery(function($, undefined) {
       else if (command.match(/^login$/)) {
         state = 'userid';
         term.set_prompt('username: ');
+      } else if (command.match(/^head(.*)/) || command.match(/^less (.*)/)) {
+        term.error("Sorry—you don't have access to that command. Try using `cat`.");
       } else if (command) {
         term.error("Invalid command");
       }
