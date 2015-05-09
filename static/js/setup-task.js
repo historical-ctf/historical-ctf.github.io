@@ -1,4 +1,5 @@
 (function() {
+var debug = true;
 
 var fs = {
   '~': {}
@@ -13,14 +14,16 @@ var password;
 function clearHints() {
   $('.help-button').each(function(index) {
     if (index == 0)
-      $(this).fadeTo("slow",1);
+      $(this).fadeTo('slow', 1);
     else {
-      $(this).css("opacity", 0);
-      $(this).css("visibility", "hidden");
-    }  
+      $(this).fadeTo('slow', 0, function() {
+        $(this).css('visibility', "hidden");
+      });
+    }
   });
 
-  justLoggedIn = true; /* Use Task 2's hint text */
+  // Set to Task 2 so that the hints reset
+  window.justLoggedIn = true;
 }
 
 function navigateToDir(dir) {
@@ -85,8 +88,6 @@ function autocomplete(currentDir, rawPath) {
     if (nextStep.slice(0, name.length) == name) {
       // If you've already matched, just return none--don't want to deal with
       // multiple matches
-
-
       matches.push(nextStep);
     }
   }
@@ -186,8 +187,7 @@ jQuery(function($, undefined) {
       // Send login attempt
       $.ajax({
         type: 'POST',
-        url: 'https://historical-ctf.herokuapp.com/login/',
-        //url: 'http://localhost:5000/login/',
+        url: debug ? 'http://localhost:5000/login/' : 'https://historical-ctf.herokuapp.com/login/',
         data: {
           'username': username,
           'password': password
