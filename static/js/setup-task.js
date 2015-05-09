@@ -73,7 +73,6 @@ var setupTask = function(options) {
       else if (dirExists(tempDir, nextDir)) {
         tempDir.push(nextDir);
       } else {
-        term.error("No such directory");
         return;
       }
     }
@@ -88,7 +87,11 @@ var setupTask = function(options) {
 
     // Check for a match
     var matches = [];
-    var dirContents = navigateToDir(navigatePath(currentDir, paths));
+    var navPath = navigatePath(currentDir, paths);
+    if (navPath)
+      var dirContents = navigateToDir(navPath);
+    else
+      return;
     for (var nextStep in dirContents) {
       if (nextStep.slice(0, name.length) == name) {
         // If you've already matched, just return none--don't want to deal with
