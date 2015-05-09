@@ -40,6 +40,15 @@ function setTask3Hints() {
   ];
 }
 
+function setTask4Hints() {
+  hintIndex = 0;
+  hints = [
+    'First hint for Task 4',
+    'Second hint for Task 4',
+    'Third hint for Task 4'
+  ];
+}
+
 // Helper function to prepare next modal
 function initializeModal() {
   if (hintIndex < hints.length) {
@@ -83,6 +92,8 @@ if (window.task == 1) {
   setTask1Hints();
 } else if (window.task == 3) {
   setPreTask3Hints();
+} else if (window.task == 4) {
+  setTask4Hints();
 }
 initializeModal();
 
