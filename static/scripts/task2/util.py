@@ -1,6 +1,6 @@
 import math
 
-# Turn a string into a number for RSA encryption. 
+# Turn a string into a number for RSA encryption.
 def serialize(s):
     ctr = 0
     i = len(s)
@@ -10,8 +10,6 @@ def serialize(s):
     return ctr
 
 # Turn a number into a string after RSA decryption.
-
-
 def deserialize(n):
     builder = ""
     numBytes = math.ceil(int(n.bit_length()) / 8)
