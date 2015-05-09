@@ -9,6 +9,18 @@ var currentDir = [homeDir];
 var state = 'fs';
 var username;
 var password;
+var hintNum = 1;
+
+function clearHints() {
+  $('.help-button').each(function(index) {
+    if (index == 0)
+      $(this).fadeTo("slow",1);
+    else
+      $(this).css("display", "none");
+  });
+
+  hintNum = 2; /* Use Task 2's hint text */
+}
 
 function navigateToDir(dir) {
   // Navigate to directory
@@ -154,6 +166,9 @@ jQuery(function($, undefined) {
         term.echo('Welcome back, bbadguy!');
         term.set_prompt('bbadguy> ');
         state = 'fs';
+
+        /* Clear all but the first hint, and update the text to Task 2 */
+        clearHints();
       })
       .fail(function() {
         term.echo('Login unsuccessful...');
