@@ -1,4 +1,4 @@
-var debug = true;
+var debug = false;
 
 function displayTask1Modal() {
   vex.dialog.alert({
@@ -9,7 +9,7 @@ function displayTask1Modal() {
 }
 
 var options = {
-  targetURL: debug ? 'http://localhost:5000/login/' : 'https://historical-ctf.herokuapp.com/login/',
+  targetURL: debug ? 'http://localhost:5000/login/' : 'https://historical-ctf.herokuapp.com/login/2',
   onLogin: displayTask1Modal,
   setupNewTerminal: function(term) {
     term.echo('Login successful...');
