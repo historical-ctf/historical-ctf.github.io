@@ -35,17 +35,17 @@ function setTask3Hints() {
   hints = [
     'Has Badguy really learned his lesson? Do you think there are any issues with using a small public exponent with multiple moduli?',
     'Try searching for "Low public exponent attack," along with the ciphertexts of the bank name in the wire-transfers, to figure out where Badguy has been storing his ill-gotten gains.',
-    'To get you started executing a low public exponent attack, <a target="_blank" href="/static/scripts/task3/skeleton.py">here\'s</a> some skeleton code and a new <a target="_blank" href="static/scripts/task3/util.py">utility file</a>.,
+    'To get you started executing a low public exponent attack, <a target="_blank" href="/static/scripts/task3/skeleton.py">here\'s</a> some skeleton code and a new <a target="_blank" href="static/scripts/task3/util.py">utility file</a>.',
     'And once again, <a target="_blank" href="/static/scripts/task3/solution.py">a reference solution</a>, your heiness.'
   ];
 }
 
-function setTask4Hints() {
+function setTask5Hints() {
   hintIndex = 0;
   hints = [
-    'First hint for Task 4',
-    'Second hint for Task 4',
-    'Third hint for Task 4'
+    'First hint for Task 5',
+    'Second hint for Task 5',
+    'Third hint for Task 5'
   ];
 }
 
@@ -92,8 +92,8 @@ if (window.task == 1) {
   setTask1Hints();
 } else if (window.task == 3) {
   setPreTask3Hints();
-} else if (window.task == 4) {
-  setTask4Hints();
+} else if (window.task == 5) {
+  setTask5Hints();
 }
 initializeModal();
 
