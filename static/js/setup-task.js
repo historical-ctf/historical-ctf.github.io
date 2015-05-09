@@ -72,6 +72,35 @@ function navigatePath(currentDir, path) {
   return tempDir;
 }
 
+function autocomplete(currentDir, rawPath) {
+  // Split into path and current file being tab-completed
+  var locs = rawPath.split('/');
+  var paths = locs.slice(0, -1);
+  var name = locs[locs.length - 1];
+
+  // Check for a match
+  var matches = [];
+  var dirContents = navigateToDir(navigatePath(currentDir, paths));
+  for (var nextStep in dirContents) {
+    if (nextStep.slice(0, name.length) == name) {
+      // If you've already matched, just return none--don't want to deal with
+      // multiple matches
+
+
+      matches.push(nextStep);
+    }
+  }
+  // Add prefix to each match
+  var prefix = paths.join('/');
+  if (prefix) {
+    prefix += '/';
+  }
+  for (var i = 0; i < matches.length; i++) {
+    matches[i] = prefix + matches[i];
+  }
+  return matches;
+}
+
 // Setup terminal emulator
 jQuery(function($, undefined) {
   $('#terminal').terminal(function(command, term) {
@@ -191,6 +220,25 @@ jQuery(function($, undefined) {
       term.set_command('login')
       term.echo('')
     },
+    tabcompletion: true,
+    completion: function(term, currCommand, callback) {
+      var matches = autocomplete(currentDir, currCommand);
+      // If a single match, replace command
+      if (matches.length === 1) {
+        var guess = matches[0];
+        var fullCommand = term.get_command();
+        var finalCommand = fullCommand.split(' ');
+        finalCommand[finalCommand.length - 1] = guess;
+        term.set_command(finalCommand.join(' '));
+      } else if (matches.length) {
+        // var fullCommand = term.get_command();
+        // term.set_command('');
+        // for (var i = 0; i < matches.length; i++) {
+        //   term.echo(matches[i]);
+        // }
+        // term.set_command(fullCommand);
+      }
+    }
   });
 });
 
