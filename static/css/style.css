@@ -50,6 +50,10 @@
     top: 115px;
 }
 
+.help-button:nth-child(5) {
+    top: 150px;
+}
+
 .help-button:nth-child(n) {
     visibility: hidden;
     opacity: 0;

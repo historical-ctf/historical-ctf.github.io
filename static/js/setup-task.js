@@ -246,8 +246,12 @@ var setupTask = function(options) {
       prompt: 'sh> ',
       onInit: function(term) {
         options.onStart && options.onStart();
-        term.set_command('login')
-        term.echo('')
+        if (options.onInit) {
+          options.onInit(term);
+        } else {
+          term.set_command('login');
+          term.echo('');
+        }
       },
       tabcompletion: true,
       completion: function(term, currCommand, callback) {
