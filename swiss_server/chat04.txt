@@ -1,2 +1,0 @@
-Badguy: Use this modulus: 34832984.
-Accomplice: Ok.
