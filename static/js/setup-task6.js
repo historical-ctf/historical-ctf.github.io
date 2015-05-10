@@ -50,8 +50,13 @@ function parseCommand(command, term) {
 }
 
 var options = {
-  onStart: debug ? null : displayTask2Modal,
-  parseCommand: parseCommand
+  parseCommand: parseCommand,
+  onInit: function(term) {
+    term.set_command('chat {screename}');
+    hasLoggedIn = true;
+    term.echo('');
+    displayTask5Modal();
+  }
 };
 
 setupTask(options);
