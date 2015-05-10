@@ -1,4 +1,6 @@
-var debug = true;
+(function() {
+
+var debug = false;
 
 function parseCommand(command, term) {
   if (command.match(/^encrypt \S+$/)) {
@@ -11,3 +13,5 @@ var options = {
 };
 
 setupTask(options);
+
+})();

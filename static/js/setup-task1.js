@@ -1,3 +1,5 @@
+(function() {
+
 var debug = false;
 
 function displayTask1Modal() {
@@ -19,3 +21,5 @@ var options = {
 };
 
 setupTask(options);
+
+})();

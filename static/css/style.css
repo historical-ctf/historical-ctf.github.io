@@ -71,9 +71,8 @@
 /* Task page - modal */
 .congratulatory-modal .vex-dialog-button {
     background-color: #03C9A9 !important;
-    color: red;
 }
 
 .congratulatory-modal .vex-content {
-    border: 3px solid #03C9A9;
+    border: 3px solid #03C9A9 !important;
 }

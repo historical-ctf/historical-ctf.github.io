@@ -1,4 +1,6 @@
-var debug = true;
+(function() {
+
+var debug = false;
 var hasLoggedIn = false;
 var loggedInPrompt = 'bbadguy> ';
 
@@ -44,3 +46,5 @@ var options = {
 };
 
 setupTask(options);
+
+})();
