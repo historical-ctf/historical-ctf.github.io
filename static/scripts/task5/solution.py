@@ -2,6 +2,7 @@ import math
 import time
 import numpy as np
 
+import util
 from decrypt import square_and_multiply
 
 
@@ -31,9 +32,9 @@ if __name__ == '__main__':
     N = 11371820908545711283
 
     # Number of values to sample
-    T = 100
+    T = 50
 
-    # Timing difference threshold
+    # Timing difference threshold for means
     threshold = 0.01
 
     def get_bit(known_bits):
@@ -74,3 +75,4 @@ if __name__ == '__main__':
         next_bit = get_bit(known_bits)
         print 'Guessed bit: %d' % next_bit
         known_bits.append(next_bit)
+    print 'Private key: %d' % util.get_decimal(known_bits)
