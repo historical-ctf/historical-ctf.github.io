@@ -79,6 +79,11 @@ var setupTask = function(options) {
     return tempDir;
   }
 
+  function highlight(currentDir, name) {
+    var color = fileExists(currentDir, name) ? 'red' : 'blue';
+    $('.terminal-output div:last').css('color', color);
+  }
+
   function autocomplete(currentDir, rawPath) {
     // Split into path and current file being tab-completed
     var locs = rawPath.split('/');
@@ -126,7 +131,8 @@ var setupTask = function(options) {
         if (command.match(/^cd$/)) {
           currentDir = [homeDir];
           var dirString = currentDir.join('/');
-          term.echo(dirString);
+          term.echo(currentDir);
+          highlight(currentDir, null);
         }
         else if (command.match(/^cd (\w|\/|\.\.)+$/)) {
           var path = command.split(' ')[1].split('/');
@@ -135,7 +141,10 @@ var setupTask = function(options) {
           if (finalDir) {
             currentDir = finalDir;
             var dirString = currentDir.join('/');
+
+            // Print new path and highlight
             term.echo(dirString);
+            highlight(currentDir, null);
           }
         }
         /* List files */
@@ -146,7 +155,9 @@ var setupTask = function(options) {
           // Print contents
           for (var fileOrDir in dirContents) {
             term.echo(fileOrDir);
+            highlight(currentDir, fileOrDir);
           }
+
         } else if (command.match(/^ls (\w|\/|\.\.)+$/)) {
           var path = command.split(' ')[1].split('/');
           var finalDir = navigatePath(currentDir, path);
@@ -158,6 +169,7 @@ var setupTask = function(options) {
             // Print contents
             for (var fileOrDir in dirContents) {
               term.echo(fileOrDir);
+              highlight(finalDir, fileOrDir);
             }
           }
         }

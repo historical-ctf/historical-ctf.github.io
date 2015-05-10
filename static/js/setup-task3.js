@@ -1,4 +1,4 @@
-var debug = false;
+var debug = true;
 var hasLoggedIn = false;
 var loggedInPrompt = 'bbadguy> ';
 
