@@ -1,10 +1,14 @@
 import util
 
 
-def unblind(signature, r, n):
+def unblind(s, r, n):
+    """Unblind signature `s` that was blinded with random factor `r` under modulus `n`."""
     pass
 
 def blind(m, r, e, n):
+    """
+    Blind message `m` with random factor `r` using public exponent `e` and modulus `n`.
+    """
     pass
 
 if __name__ == '__main__':

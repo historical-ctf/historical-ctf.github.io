@@ -1,7 +1,8 @@
 import math
 
-# Turn a string into a number for RSA encryption.
+
 def serialize(s):
+    """Serialize a string `s` into a number for RSA encryption."""
     ctr = 0
     i = len(s)
     for c in s:
@@ -9,8 +10,9 @@ def serialize(s):
         ctr = ctr + (ord(c) * (256 ** i))
     return ctr
 
-# Turn a number into a string after RSA decryption.
+
 def deserialize(n):
+    """Deserialize a number `n` that has been RSA decrypted into a string."""
     builder = ""
     numBytes = math.ceil(int(n.bit_length()) / 8)
     i = 0
@@ -22,14 +24,20 @@ def deserialize(n):
 
 
 def encrypt(m, e, n):
+    """Encrypt a message `m` with public exponent `e` and modulus `n` using RSA."""
     return pow(m, e, n)
 
 
 def sign(m, d, n):
+    """Sign a message `m` with private exponent `d` and modulus `n` using RSA."""
     return encrypt(m, d, n)
 
 
 def egcd(a, b):
+    """
+    Compute the greatest common divisor (GCD) of integers `a` and `b`. In addition, return
+    integers `x` and `y` such that ax + by = GCD(a, b).
+    """
     x, y, u, v = 0, 1, 1, 0
     while a != 0:
         q, r = b // a, b % a
@@ -40,6 +48,7 @@ def egcd(a, b):
 
 
 def modinv(a, m):
+    """Compute the inverse of `a` under modulus `m`."""
     g, x, y = egcd(a, m)
     if g != 1:
         raise Exception('Modular inverse does not exist')
@@ -47,7 +56,8 @@ def modinv(a, m):
         return x % m
 
 
-def iroot(k, n):
+def iroot(n, k):
+    """Compute the `k`-th inverse root of `n`, or `n^{1/k}`."""
     u, s = n, n + 1
     while u < s:
         s = u

@@ -5,7 +5,7 @@ def decrypt(c1, c2, c3, n1, n2, n3):
     t2 = c2 * (n1 * n3) * util.modinv(n1 * n3, n2)
     t3 = c3 * (n1 * n2) * util.modinv(n1 * n2, n3)
     cubed = (t1 + t2 + t3) % (n1 * n2 * n3)
-    return util.iroot(3, cubed)
+    return util.iroot(cubed, 3)
 
 if __name__ == '__main__':
     # Low public exponent
