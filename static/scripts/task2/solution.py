@@ -9,7 +9,6 @@ def decrypt(c1, c2, e1, e2, n):
     # One of (x, y) will be negative, which makes it difficult to do (c ^ x) % n
     # To solve that problem, we compute the modular inverse d of c such that:
     #   d ^ (-x) === c ^ x (mod n)
-    # (This solution comes from https://en.wikipedia.org/wiki/Modular_exponentiation)
     if x < 0:
         c1 = util.modinv(c1, n)
         x = -x
@@ -23,17 +22,14 @@ def decrypt(c1, c2, e1, e2, n):
 
 
 if __name__ == '__main__':
-    # Public modulus
-    # FILL IN BADGUY's PUBLIC MODULUS (found in chat logs)
+    # TODO(Public modulus, from the chat logs)
     n =
 
-    # Public exponents
-    # FILL IN BADGUY'S PUBLIC EXPONENTS
+    # TODO(Public exponents, also from chat logs)
     e1 =
     e2 =
 
-    # Ciphertexts
-    # FILL IN BADGUY'S ENCRYPTED MESSAGES
+    # TODO(Ciphertexts, also from chat logs)
     c1 =
     c2 =
 
