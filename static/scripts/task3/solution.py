@@ -17,10 +17,18 @@ if __name__ == '__main__':
     n3 = 113032293844062778010552135120097153168770917678858274028680086222545480165106452752219139785525290848507010951828716457031328998245087374551488793643104802019037058773444067789324196497483148274793006559472819358670510016004791401014599787288476859621262777445432028566517254297253949266303285696167912794039L
 
     # Encrypts the 'secret' message
-    message = 'https://swissco-bank.herokuapp.com/'
+    message = """
+    URL: https://swissco-bank.herokuapp.com/
+    Wired to: 3761 Spacewars Street, Melbourne, Australia
+    """
     m = util.serialize(message)
+    assert(n3 > m)
     c1 = util.encrypt(m, e, n1)
     c2 = util.encrypt(m, e, n2)
     c3 = util.encrypt(m, e, n3)
+
+    print c1
+    print c2
+    print c3
 
     print util.deserialize(decrypt(c1, c2, c3, n1, n2, n3))

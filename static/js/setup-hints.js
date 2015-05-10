@@ -49,6 +49,15 @@ function setTask5Hints() {
   ];
 }
 
+function setTask6Hints() {
+  hintIndex = 0;
+  hints = [
+    'First hint for Task 6',
+    'Second hint for Task 6',
+    'Third hint for Task 6'
+  ];
+}
+
 // Helper function to prepare next modal
 function initializeModal() {
   if (hintIndex < hints.length) {
@@ -62,6 +71,8 @@ function initializeModal() {
           setTask2Hints();
         } else if (window.task == 3) {
           setTask3Hints();
+        } else if (window.task == 6) {
+          setTask6Hints();
         }
         window.justLoggedIn = false;
       }
@@ -94,6 +105,8 @@ if (window.task == 1) {
   setPreTask3Hints();
 } else if (window.task == 5) {
   setTask5Hints();
+} else if (window.task == 6) {
+  setTask6Hints();
 }
 initializeModal();
 
