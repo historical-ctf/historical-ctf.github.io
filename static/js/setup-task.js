@@ -80,8 +80,8 @@ var setupTask = function(options) {
   }
 
   function highlight(currentDir, name) {
-    var color = fileExists(currentDir, name) ? 'red' : 'blue';
-    $('.terminal-output div:last').css('color', color);
+    var classSuffix = fileExists(currentDir, name) ? 'file' : 'dir';
+    $('.terminal-output div:last').addClass('terminal-' + classSuffix);
   }
 
   function autocomplete(currentDir, rawPath) {

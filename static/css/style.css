@@ -55,11 +55,20 @@
     opacity: 0;
 }
 
-/* Task page - styling */
+/* Task page - terminal styling */
 .cmd {
     color: yellow;
 }
 
+.terminal-output .terminal-dir {
+    color: blue;
+}
+
+.terminal-output .terminal-file {
+    color: red;
+}
+
+/* Task page - modal */
 .congratulatory-modal .vex-dialog-button {
     background-color: #03C9A9 !important;
     color: red;
