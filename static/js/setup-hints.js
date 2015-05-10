@@ -27,7 +27,7 @@ function setPreTask3Hints() {
   hintIndex = 0;
   hints = [
     'Look in Badguy\'s diary on the previous server for some login credentials.',
-    'Too lazy to check? Try the username `bbadguy` with the password `rootabega`.'
+    'Too lazy to check? Try the username "bbadguy" and the password "rootabega".'
   ];
 }
 
