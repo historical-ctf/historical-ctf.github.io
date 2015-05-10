@@ -81,7 +81,7 @@ var setupTask = function(options) {
 
   function highlight(currentDir, name) {
     var classSuffix = fileExists(currentDir, name) ? 'file' : 'dir';
-    $('.terminal-output div:last').addClass('terminal-' + classSuffix);
+    return name + '.terminal-' + classSuffix;
   }
 
   function autocomplete(currentDir, rawPath) {
@@ -131,8 +131,7 @@ var setupTask = function(options) {
         if (command.match(/^cd$/)) {
           currentDir = [homeDir];
           var dirString = currentDir.join('/');
-          term.echo(currentDir);
-          highlight(currentDir, null);
+          term.echo('~.terminal-dir');
         }
         else if (command.match(/^cd (\w|\/|\.\.)+$/)) {
           var path = command.split(' ')[1].split('/');
@@ -143,8 +142,7 @@ var setupTask = function(options) {
             var dirString = currentDir.join('/');
 
             // Print new path and highlight
-            term.echo(dirString);
-            highlight(currentDir, null);
+            term.echo(dirString + '.terminal-dir');
           }
         }
         /* List files */
@@ -154,8 +152,7 @@ var setupTask = function(options) {
 
           // Print contents
           for (var fileOrDir in dirContents) {
-            term.echo(fileOrDir);
-            highlight(currentDir, fileOrDir);
+            term.echo(highlight(currentDir, fileOrDir));
           }
 
         } else if (command.match(/^ls (\w|\/|\.\.)+$/)) {
@@ -218,7 +215,6 @@ var setupTask = function(options) {
             'password': password
           }
         }).done(function(result) {
-          console.log(result);
           fs[homeDir] = JSON.parse(result);
 
           // Setup new terminal prompt and whatnot
