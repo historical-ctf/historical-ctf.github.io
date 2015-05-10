@@ -16,7 +16,7 @@ function parseCommand(command, term) {
     var key = command.split(' ')[1];
     $.ajax({
       type: 'POST',
-      url: 'http://localhost:5000/submit-key/',
+      url: debug ? 'http://localhost:5000/submit-key/' : 'https://historical-ctf.github.io/submit-key/',
       data: { 'key': key }
     }).done(function(result) {
       term.echo('Success!');
