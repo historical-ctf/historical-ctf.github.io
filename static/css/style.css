@@ -50,21 +50,33 @@
     top: 115px;
 }
 
+.help-button:nth-child(5) {
+    top: 150px;
+}
+
 .help-button:nth-child(n) {
     visibility: hidden;
     opacity: 0;
 }
 
-/* Task page - styling */
+/* Task page - terminal styling */
 .cmd {
     color: yellow;
 }
 
-.congratulatory-modal .vex-dialog-button {
-    background-color: #03C9A9 !important;
+.terminal-output .terminal-dir {
+    color: blue;
+}
+
+.terminal-output .terminal-file {
     color: red;
 }
 
+/* Task page - modal */
+.congratulatory-modal .vex-dialog-button {
+    background-color: #03C9A9 !important;
+}
+
 .congratulatory-modal .vex-content {
-    border: 3px solid #03C9A9;
+    border: 3px solid #03C9A9 !important;
 }

@@ -26,7 +26,8 @@ function setTask2Hints() {
 function setPreTask3Hints() {
   hintIndex = 0;
   hints = [
-    'Look in Badguy\'s diary on the previous server for some login credentials.'
+    'Look in Badguy\'s diary on the previous server for some login credentials.',
+    'Too lazy to check? Try the username `bbadguy` with the password `rootabega`.'
   ];
 }
 
@@ -43,9 +44,11 @@ function setTask3Hints() {
 function setTask5Hints() {
   hintIndex = 0;
   hints = [
-    'First hint for Task 5',
-    'Second hint for Task 5',
-    'Third hint for Task 5'
+    'If you don\'t know where to start, try skimming pages 5 and 6 of this paper from <a target="_blank" href="https://www.cs.jhu.edu/~fabian/courses/CS600.624/Timing-full.pdf">Dhem et al.</a>',
+    'In the skeleton, the goal of the `reduction_required` function is to check if the value needs to be reduced at the point corresponding to the number of bits we know for sure.<br><br>Here\'s a <a target="_blank" href="/static/script/task5/skeleton2.py">more complete skeleton</a> that fills in that function.',
+    'The key idea behind this attack: when solving for the k-th bit of the private key, you collect a bunch of integers that <i>do</i> require a modular reduction (after k iterations of the square and multiply algorithm) and a bunch of integers that <i>don\'t</i>.<br><br>Then, you can compare the mean timing required to run the square and multiply algorithm on these two distinct sets of integers.<br><br>Try sampling 100 integers for each set. Then compare the mean timings.',
+    'Still having trouble? Here\'s another <a target="_blank" href="/static/script/task5/skeleton3.py">even more complete skeleton</a> that fills in the sampling function.',
+    'I don\'t blame you—this is the toughest challenge yet. Here\'s the <a target="_blank" href="/static/script/task5/solution.py">solution</a>, which takes a few minutes to run, but should spit out the right answer.'
   ];
 }
 
