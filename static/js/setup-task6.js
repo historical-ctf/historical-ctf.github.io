@@ -4,6 +4,7 @@ var loggedInPrompt = 'sh> ';
 var isChatting = false;
 var chatPrompt = 'swissco-official: ';
 var chatID;
+var chatState;
 
 function displayTask6Modal() {
   vex.dialog.alert({
@@ -18,12 +19,13 @@ function parseCommand(command, term) {
     var m = command.split(' ')[1];
     $.ajax({
       type: 'POST',
-      url: 'https://historical-ctf.herokuapp.com/startChat/' + chatID,
+      url: 'http://localhost:5000/startChat/',
       data: { 'screename': m }
     }).done(function(result) {
       term.echo(m + ' is online');
       term.set_prompt(chatPrompt);
       isChatting = true;
+      chatState = 0;
     })
     .fail(function() {
       term.error('User ' + m + ' is not online');
@@ -35,10 +37,13 @@ function parseCommand(command, term) {
   	var m = command;
 	$.ajax({
       type: 'POST',
-      url: 'https://historical-ctf.herokuapp.com/chat/' + chatID,
-      data: { 'message': m }
+      url: 'http://localhost:5000/chat/',
+      data: { 'message': m, 'state': chatState }
     }).done(function(result) {
-      term.echo("searly1965: " + result);
+      temp = result.split('|');
+      term.echo("searly1965: " + temp[1]);
+      chatState = temp[0];
+      console.log(chatState);
       term.set_prompt(chatPrompt);
       if (result.indexOf("Boole") > -1) {
         displayTask6Modal();
