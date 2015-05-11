@@ -3,7 +3,6 @@ var hasLoggedIn = true;
 var loggedInPrompt = 'sh> ';
 var isChatting = false;
 var chatPrompt = 'swissco-official: ';
-var chatID;
 var chatState;
 
 function displayTask6Modal() {
@@ -69,5 +68,4 @@ var options = {
   }
 };
 
-chatID = Math.floor(Math.random()*1000),
 setupTask(options);
