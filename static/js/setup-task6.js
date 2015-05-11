@@ -18,7 +18,7 @@ function parseCommand(command, term) {
     var m = command.split(' ')[1];
     $.ajax({
       type: 'POST',
-      url: 'http://localhost:5000/startChat/' + chatID,
+      url: 'https://historical-ctf.herokuapp.com/startChat/' + chatID,
       data: { 'screename': m }
     }).done(function(result) {
       term.echo(m + ' is online');
@@ -35,7 +35,7 @@ function parseCommand(command, term) {
   	var m = command;
 	$.ajax({
       type: 'POST',
-      url: 'http://localhost:5000/chat/' + chatID,
+      url: 'https://historical-ctf.herokuapp.com/chat/' + chatID,
       data: { 'message': m }
     }).done(function(result) {
       term.echo("searly1965: " + result);
