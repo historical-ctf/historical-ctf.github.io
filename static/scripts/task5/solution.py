@@ -56,13 +56,15 @@ if __name__ == '__main__':
                 if len(under) < T:
                     under.append(sample)
 
-        # Compute mean times for those that required a reduction and those that did not
+        # Compute mean timing for those that required a reduction
         over_times = [get_time(v, N, len(known_bits)) for v in over]
-        under_times = [get_time(v, N, len(known_bits)) for v in under]
         over_mean = sum(over_times) / float(len(over_times))
+
+        # Compute mean timing for those that did not require a reduction
+        under_times = [get_time(v, N, len(known_bits)) for v in under]
         under_mean = sum(under_times) / float(len(under_times))
 
-        # Compare mean time
+        # Compare mean timing and check if difference is above threshold
         if abs(over_mean - under_mean) > threshold:
             return 1
         else:

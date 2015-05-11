@@ -1,4 +1,4 @@
-var debug = true;
+var debug = false;
 var hasLoggedIn = true;
 var loggedInPrompt = 'sh> ';
 var isChatting = false;
@@ -18,7 +18,7 @@ function parseCommand(command, term) {
     var m = command.split(' ')[1];
     $.ajax({
       type: 'POST',
-      url: 'https://historical-ctf.herokuapp.com/startChat/' + chatID,
+      url: (debug) ? 'http://localhost:5000/startChat/' + chatID : 'https://historical-ctf.herokuapp.com/startChat/' + chatID,
       data: { 'screename': m }
     }).done(function(result) {
       term.echo(m + ' is online');
@@ -28,14 +28,14 @@ function parseCommand(command, term) {
     .fail(function() {
       term.error('User ' + m + ' is not online');
       term.set_prompt(loggedInPrompt);
-    })
+    });
     term.set_prompt('');
     return true;
   } else if (isChatting) {
-  	var m = command;
-	$.ajax({
+    var m = command;
+  	$.ajax({
       type: 'POST',
-      url: 'https://historical-ctf.herokuapp.com/chat/' + chatID,
+      url: (debug) ? 'http://localhost:5000/chat/' + chatID : 'https://historical-ctf.herokuapp.com/chat/' + chatID,
       data: { 'message': m }
     }).done(function(result) {
       term.echo("searly1965: " + result);
@@ -48,9 +48,9 @@ function parseCommand(command, term) {
     	term.error("There was an error connecting with the chat server. Please reload.");
       console.log(result);
       console.log("Server Error. Shouldn't get here.");
-    })
+    });
     term.set_prompt('');
-    return true;  	
+    return true;
   }
 }
 

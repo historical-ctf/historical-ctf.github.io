@@ -32,4 +32,5 @@ if __name__ == '__main__':
     c2 = util.encrypt(m, e, n2)
     c3 = util.encrypt(m, e, n3)
 
+    # Decrypt using the Low Public Exponent Attack
     print util.deserialize(decrypt(c1, c2, c3, n1, n2, n3))
