@@ -55,9 +55,9 @@ function setTask5Hints() {
 function setTask6Hints() {
   hintIndex = 0;
   hints = [
-    'First hint for Task 6',
-    'Second hint for Task 6',
-    'Third hint for Task 6'
+    'Missing Badguy\'s chat username? Try <b>searly1965</b>, from the prompt.',
+    'If you find yourself at a loss for Badguy\'s Swissco account number, look back to Task 3 (Low Public Exponent Attack), where he listed both the bank URL and his own account number.',
+    'Unsure about Badguy\'s favorite spacecraft? Think back to the very beginning—Task 1 (Deterministic Attack). What was Badguy\'s password?'
   ];
 }
 
@@ -74,8 +74,6 @@ function initializeModal() {
           setTask2Hints();
         } else if (window.task == 3) {
           setTask3Hints();
-        } else if (window.task == 6) {
-          setTask6Hints();
         }
         window.justLoggedIn = false;
       }
