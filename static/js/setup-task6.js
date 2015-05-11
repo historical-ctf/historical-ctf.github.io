@@ -7,7 +7,7 @@ var chatID;
 
 function displayTask6Modal() {
   vex.dialog.alert({
-    message: 'Congratulations! You\'ve put Badguy behind bars!',
+    message: 'Congratulations! You\'ve put Badguy behind bars!<br><br>The goal of this challenge was to execute a Social Engineering Attack.<br><br>In the day-to-day, these attacks take the form of phishing emails and other psychologically manipulative techniques. While they\'re not strictly "technical", Social Engineering Attacks are nonetheless a part of information security and an important area of research (see, for example, Dhamija and Tygar\'s 2005 paper, <b><a target="_blank" href="https://dl.acm.org/citation.cfm?id=1073009">The Battle Against Phishing</b></a>).<br><br>Thanks for playing the Historical CTF, and congratulations again on putting an end to Badguy\'s reign of terror!',
     // Have to include 'vex-theme-plain' or it clobbers the default class
     className: 'vex-theme-plain congratulatory-modal'
   });
