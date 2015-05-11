@@ -1,3 +1,5 @@
+(function() {
+
 var debug = false;
 var hasLoggedIn = true;
 var loggedInPrompt = 'sh> ';
@@ -51,8 +53,6 @@ function parseCommand(command, term) {
     })
     .fail(function(result) {
     	term.error("There was an error connecting with the chat server. Please reload.");
-      console.log(result);
-      console.log("Server Error. Shouldn't get here.");
     });
     term.set_prompt('');
     return true;
@@ -62,10 +62,12 @@ function parseCommand(command, term) {
 var options = {
   parseCommand: parseCommand,
   onInit: function(term) {
-    term.set_command('chat {screename}');
     hasLoggedIn = true;
+    term.set_command('chat {screename}');
     term.echo('');
   }
 };
 
 setupTask(options);
+
+})();
