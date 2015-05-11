@@ -27,10 +27,13 @@ if __name__ == '__main__':
     message =
     m = util.serialize(message)
 
-    # Blind and sign
+    # Blind
     m_prime = blind(m, r, e, n)
-    blind_signature = util.sign(m_prime, d, n)
+
+    # TODO(Use the server to sign `m_prime`)
+    blind_signature =
     true_signature = unblind(blind_signature, r, n)
 
     print 'Blinded signature: %d' % blind_signature
     print 'Unblinded signature: %d' % true_signature
+
