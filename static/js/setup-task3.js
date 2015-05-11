@@ -1,6 +1,6 @@
 (function() {
 
-var debug = true;
+var debug = false;
 var hasLoggedIn = false;
 var loggedInPrompt = 'bbadguy> ';
 
@@ -17,7 +17,7 @@ function parseCommand(command, term) {
     var m = command.split(' ')[1];
     $.ajax({
       type: 'POST',
-      url: (debug) ? 'http://localhost:5000/sign/' : 'https://historical-ctf.github.io/sign/',
+      url: (debug) ? 'http://localhost:5000/sign/' : 'https://historical-ctf.herokuapp.com/sign/',
       data: { 'message': m }
     }).done(function(result) {
       term.echo('Signed message: ' + result);
