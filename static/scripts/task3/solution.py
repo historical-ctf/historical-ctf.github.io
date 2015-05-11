@@ -1,6 +1,12 @@
 import util
 
+
 def decrypt(c1, c2, c3, n1, n2, n3):
+    """
+    Decrypt by executing a Low Public Exponent Attack based on the Chinese Remainder Theorem.
+    For a good explanation:
+        http://crypto.stackexchange.com/questions/6713/low-public-exponent-attack-for-rsa
+    """
     t1 = c1 * (n2 * n3) * util.modinv(n2 * n3, n1)
     t2 = c2 * (n1 * n3) * util.modinv(n1 * n3, n2)
     t3 = c3 * (n1 * n2) * util.modinv(n1 * n2, n3)
@@ -22,13 +28,8 @@ if __name__ == '__main__':
     Wired to: 3761 Spacewars Street, Melbourne, Australia
     """
     m = util.serialize(message)
-    assert(n3 > m)
     c1 = util.encrypt(m, e, n1)
     c2 = util.encrypt(m, e, n2)
     c3 = util.encrypt(m, e, n3)
-
-    print c1
-    print c2
-    print c3
 
     print util.deserialize(decrypt(c1, c2, c3, n1, n2, n3))

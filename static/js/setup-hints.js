@@ -34,10 +34,10 @@ function setPreTask3Hints() {
 function setTask3Hints() {
   hintIndex = 0;
   hints = [
-    'Has Badguy really learned his lesson? Do you think there are any issues with using a small public exponent with multiple moduli?',
-    'Try searching for "Low public exponent attack," along with the ciphertexts of the bank name in the wire-transfers, to figure out where Badguy has been storing his ill-gotten gains.',
-    'To get you started executing a low public exponent attack, <a target="_blank" href="/static/scripts/task3/skeleton.py">here\'s</a> some skeleton code and a new <a target="_blank" href="static/scripts/task3/util.py">utility file</a>.',
-    'And once again, <a target="_blank" href="/static/scripts/task3/solution.py">a reference solution</a>, your heiness.'
+    'Has Badguy really learned his lesson? Do you think there are any issues with using the same, small public exponent, even with multiple moduli?',
+    'Try searching around for a Low Public Exponent Attack. You can use such an attack, along with the ciphertexts in the wire-transfers, to figure out where Badguy has been storing his ill-gotten gains.',
+    'To get you started executing a Low Public Exponent Attack, here\'s some <a target="_blank" href="/static/scripts/task3/skeleton.py">skeleton code</a> and a new <a target="_blank" href="static/scripts/task3/util.py">utility file</a>.',
+    'And once again, <a target="_blank" href="/static/scripts/task3/solution.py">a reference solution</a>, as requested.'
   ];
 }
 
