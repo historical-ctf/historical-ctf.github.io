@@ -1,4 +1,5 @@
 import math
+import numpy as np
 
 import util
 from decrypt import square_and_multiply
@@ -31,10 +32,10 @@ if __name__ == '__main__':
     # TODO(Public modulus)
     N =
 
-    # Number of values to sample
-    T = 100
+    # Number of values of each type to sample
+    T = 50
 
-    # Timing difference threshold
+    # Timing difference threshold for means
     threshold = 0.01
 
     def get_bit(known_bits):

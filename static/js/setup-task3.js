@@ -17,7 +17,7 @@ function parseCommand(command, term) {
     var m = command.split(' ')[1];
     $.ajax({
       type: 'POST',
-      url: 'http://localhost:5000/sign/',
+      url: (debug) ? 'http://localhost:5000/sign/' : 'https://historical-ctf.github.io/sign/',
       data: { 'message': m }
     }).done(function(result) {
       term.echo('Signed message: ' + result);

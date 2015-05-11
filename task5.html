@@ -41,7 +41,7 @@
 Welcome to the fifth challenge. We're done with servers—it's time to crack into some hardware.<br><br>
 ---<br><br>
 Using the information provided by Swissco, the FBI was able to raid one of Badguy's old hideouts. Inside, they found an encrypted hard drive. It's your job to decrypt it.<br><br>
-On a separate drive, the FBI found a set of binaries that Badguy had used to encrypt and decrypt information. The drive was damaged, so only a few functions still work, and the code itself is too obfuscated for us to read. We're providing you with the <a target="_blank" href="/static/script/task5/decrypt.pyc">most important binary</a>.<br><br>
+On a separate drive, the FBI found a set of binaries that Badguy had used to encrypt and decrypt information. The drive was damaged, so only a few functions still work, and the code itself is too obfuscated for us to read. We're providing you with the <a target="_blank" href="/static/scripts/task5/decrypt.pyc">most important binary</a>.<br><br>
 Why is it important? Well, FBI cryptanalysts have determined that Badguy's decryption function was using a <span class="highlight">square and multiply</span> algorithm. This function is exported on the binary, with the following signature:<br><br>
 <span style="color: purple">def</span> <span style="color: cyan">square_and_multiply</span>(<span style="color: yellow">m</span>, <span style="color: yellow">n</span>, <span style="color: yellow">idx</span>):<br>
 &nbsp;&nbsp;<span style="color: green">"""</span><br>
@@ -50,7 +50,7 @@ Why is it important? Well, FBI cryptanalysts have determined that Badguy's decry
 &nbsp;&nbsp;...<br>
 <br>
 They also determined that Badguy was using a public modulus <b>N</b> of <span class="highlight">773978585664881</span>, and that his private key consisted of <span class="highlight">62</span> bits.<br><br>
-Because this challenge is a little more difficult, we're just going to say it: you need to look into using a <span class="highlight">timing attack</span>, based on the square and multiply algorithm, to crack the private key. We're also providing a <a target="_blank" href="/static/script/task5/skeleton.py">skeleton</a> right off-the-bat.<br><br>
+Because this challenge is a little more difficult, we're just going to say it: you need to look into using a <span class="highlight">timing attack</span>, based on the square and multiply algorithm, to crack the private key. We're also providing a <a target="_blank" href="/static/scripts/task5/skeleton.py">skeleton</a> and <a target="_blank" href="/static/scripts/task5/util.py">utility file</a> right off-the-bat.<br><br>
 <span class="highlight">Note:</span> When you're ready, run the <b>decrypt {key}</b> command with the cracked key, expressed in decimal.
 </div>
 <div class="help-buttons">

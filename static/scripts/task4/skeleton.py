@@ -12,18 +12,15 @@ def blind(m, r, e, n):
     pass
 
 if __name__ == '__main__':
-    # Modulus carries over from previous challenge
+    # TODO(Public modulus and exponent, which carry over from previous challenge)
     n =
-
-    # Public exponent
     e =
 
-    # Choose a large random prime to be the blinding factor
+    # TOOD(Choose a large random prime to be the blinding factor)
     r =
 
-    # Sign the initial message for comparison
+    # TODO(Choose an initial message, which should be Badguy's username)
     message =
-    m = util.serialize(message)
 
     # Blind and sign
     m_prime = blind(m, r, e, n)
