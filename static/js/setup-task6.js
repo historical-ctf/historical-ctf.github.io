@@ -46,7 +46,7 @@ function parseCommand(command, term) {
       console.log(chatState);
       term.set_prompt(chatPrompt);
       if (result.indexOf("Boole") > -1) {
-        displayTask6Modal();
+        setTimeout(displayTask6Modal, 2000);
       }
     })
     .fail(function(result) {
