@@ -21,6 +21,7 @@ if __name__ == '__main__':
 
     # TODO(Choose an initial message, which should be Badguy's username)
     message =
+    m = util.serialize(message)
 
     # Blind and sign
     m_prime = blind(m, r, e, n)

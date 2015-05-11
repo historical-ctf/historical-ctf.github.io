@@ -25,9 +25,9 @@ if __name__ == '__main__':
 
     # TODO(Choose an initial message, which should be Badguy's username)
     message =
+    m = util.serialize(message)
 
     # Blind and sign
-    m = util.serialize(message)
     m_prime = blind(m, r, e, n)
     blind_signature = util.sign(m_prime, d, n)
     true_signature = unblind(blind_signature, r, n)
