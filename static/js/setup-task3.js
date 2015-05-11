@@ -1,6 +1,6 @@
 (function() {
 
-var debug = false;
+var debug = true;
 var hasLoggedIn = false;
 var loggedInPrompt = 'bbadguy> ';
 
@@ -22,8 +22,14 @@ function parseCommand(command, term) {
     }).done(function(result) {
       term.echo('Signed message: ' + result);
     })
-    .fail(function() {
-      term.error('Will not sign');
+    .fail(function(e) {
+      if (e.status === 500) {
+        term.error('Will not sign non-integer.');
+      } else if (e.status === 403) {
+        term.error('Will not sign sensitive message.')
+      } else {
+        term.error('Will not sign.')
+      }
     })
     .always(function() {
       term.set_prompt(loggedInPrompt);
