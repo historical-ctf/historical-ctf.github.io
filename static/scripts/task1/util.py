@@ -21,3 +21,8 @@ def deserialize(n):
         n >>= 8
         i = i + 1
     return builder[::-1]
+
+
+def encrypt(m, e, n):
+    """Encrypt a message `m` with public exponent `e` and modulus `n` using RSA."""
+    return pow(m, e, n)

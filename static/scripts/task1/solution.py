@@ -1,9 +1,5 @@
 import util
 
-
-def crypt(m, e, n):
-    return pow(m, e, n)
-
 if __name__ == '__main__':
     # Import password dictionary
     guesses = open('dictionary.txt').read().splitlines()
@@ -16,11 +12,11 @@ if __name__ == '__main__':
     cipher =
 
     # Try every password in dictionary
-        count = 0
-        for l in lines:
-            if crypt(util.serialize(l), e, n) == cipher:
-                print "Password Cracked: %s" % l
-                break
-            count = count + 1
-            if (count % 100 == 0):
-                print "Tried " + str(count) + " passwords"
+    count = 0
+    for guess in guesses:
+        if util.encrypt(util.serialize(guess), e, n) == cipher:
+            print "Password Cracked: %s" % guess
+            break
+        count = count + 1
+        if (count % 100 == 0):
+            print "Tried " + str(count) + " passwords"
