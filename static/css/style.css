@@ -65,7 +65,7 @@
 }
 
 .terminal-output .terminal-dir {
-    color: blue;
+    color: rgb(0,245,255);
 }
 
 .terminal-output .terminal-file {
