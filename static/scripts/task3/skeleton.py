@@ -17,7 +17,7 @@ def decrypt(c1, c2, c3, n1, n2, n3):
 
 if __name__ == '__main__':
     # TODO(Badguy's public exponent)
-    e = 3
+    e =
 
     # TODO(Badguy's three public moduli)
     n1 =
